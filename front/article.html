@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как не утонуть в тревоге и управлять своими страхами — YouTalk</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; }
+        button { cursor: pointer; }
+
+        /* Header (точно как в блоге) */
+        .header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header__container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .header__logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #7c3aed;
+        }
+
+        .header__nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .header__link {
+            color: #374151;
+            font-size: 15px;
+            transition: color 0.2s ease;
+        }
+
+        .header__link:hover {
+            color: #7c3aed;
+        }
+
+        .header__button {
+            background-color: #34d399;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-weight: 500;
+            border: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .header__button:hover {
+            background-color: #10b981;
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 48px;
+        }
+
+        .breadcrumb {
+            padding: 24px 0 16px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .article {
+            padding-bottom: 80px;
+        }
+
+        .article__title {
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .article__meta {
+            color: #6b7280;
+            margin-bottom: 32px;
+        }
+
+        .article__image {
+            width: 100%;
+            border-radius: 16px;
+            margin: 32px 0;
+        }
+
+        .article__content h2 {
+            font-size: 24px;
+            margin: 40px 0 16px;
+        }
+
+        .article__content h3 {
+            font-size: 20px;
+            margin: 32px 0 12px;
+        }
+
+        .article__content p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        .content__list {
+            margin: 24px 0;
+            padding-left: 20px;
+        }
+
+        .content__list li {
+            margin-bottom: 12px;
+        }
+
+        .exercise {
+            background-color: #f0fdf4;
+            border-radius: 16px;
+            padding: 28px;
+            margin: 32px 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            position: sticky;
+            top: 24px;
+            align-self: start;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .psychologist {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .psychologist img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2963A3;
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer__container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
+        }
+
+        .footer__column h4 {
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .footer__list {
+            list-style: none;
+        }
+
+        .footer__list-item {
+            margin-bottom: 12px;
+        }
+
+        .footer__link {
+            color: #e0f2fe;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .footer__link:hover {
+            color: white;
+        }
+
+        .footer__newsletter {
+            grid-column: span 2;
+        }
+
+        .footer__newsletter-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer__newsletter-input {
+            flex: 1;
+            padding: 16px 20px;
+            border-radius: 9999px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .footer__newsletter-input::placeholder {
+            color: #bae6fd;
+        }
+
+        .footer__sk {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .footer__socials {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer__socials a {
+            color: white;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer__socials a:hover {
+            opacity: 0.75;
+        }
+
+        .footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 60px;
+            padding-top: 30px;
+            font-size: 13px;
+            color: #bae6fd;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header__container">
+        <a href="#" class="header__logo">youtalk</a>
+
+        <nav class="header__nav" aria-label="Основная навигация">
+            <a href="#" class="header__link">О нас</a>
+            <a href="#" class="header__link">Тарифы</a>
+            <a href="#" class="header__link">Для бизнеса</a>
+            <a href="#" class="header__link">Психологам</a>
+            <a href="#" class="header__link">Сертификат</a>
+            <a href="#" class="header__link">Материалы</a>
+            <a href="#" class="header__link">FAQ</a>
+        </nav>
+
+        <button class="header__button" type="button">Подобрать психолога</button>
+    </div>
+</header>
+
+<div class="main">
+    <article class="article">
+        <nav class="breadcrumb" aria-label="Хлебные крошки">
+            Главная › Блог › Как не утонуть в тревоге и управлять своими страхами
+        </nav>
+
+        <h1 class="article__title">Как не утонуть в тревоге и управлять своими страхами</h1>
+        <div class="article__meta">
+            Автор: Лиза Файнтух • 21.08.2021
+        </div>
+
+        <img src="https://picsum.photos/id/1015/1200/600" alt="Женщина плавает в море" class="article__image">
+
+        <div class="article__content">
+            <h2>Содержание</h2>
+            <ul class="content__list">
+                <li>Как понять, что отношения с мамой были дисфункциональными и привели к тревоге?</li>
+                <li>Мама привет!</li>
+                <li>Под под заголовком под заголовком</li>
+            </ul>
+
+            <h3>Заголовок h3</h3>
+            <p>Один из самых важных навыков, которые может дать работа с психотерапевтом — умение в разных ситуациях по-разному обходиться со своими эмоциями.</p>
+            <p>Снять этот процесс с автопилота и перевести его в поле сознания.</p>
+
+            <div class="exercise">
+                <strong>Упражнение #1</strong><br><br>
+                Нужно последовательно напрягать и расслаблять каждую мышцу в теле на несколько секунд. Напрягать стоит довольно сильно, чтобы потом отчетливо ощущать расслабляющий эффект.
+            </div>
+
+            <h3>Что еще можно делать с тревогой?</h3>
+            <ul class="content__list">
+                <li>Управлять ей через что-то внешнее: включать музыку, которая создаст другое настроение.</li>
+                <li>А еще порой можно разрешить себе тревогу заесть чем-то вкусным.</li>
+            </ul>
+
+            <img src="https://picsum.photos/id/201/800/500" alt="Группа людей" class="article__image">
+
+            <div class="exercise">
+                <strong>Упражнение #2</strong><br><br>
+                Нужно последовательно напрягать и расслаблять каждую мышцу...
+            </div>
+
+            <img src="https://picsum.photos/id/64/800/500" alt="Руки" class="article__image">
+        </div>
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-card">
+            <div class="psychologist">
+                <img src="https://picsum.photos/id/64/128/128" alt="Лилия">
+                <div>
+                    <strong>Лилия</strong><br>
+                    Психолог<br>
+                    <small>Опыт: +13 лет</small>
+                </div>
+            </div>
+            <button style="width:100%; margin-top:20px; background:#10b981; color:white; padding:14px; border:none; border-radius:9999px; font-weight:500;">
+                Подробнее
+            </button>
+        </div>
+
+        <div class="sidebar-card" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); color:white; text-align:center; padding:32px 24px;">
+            <h3 style="margin-bottom:16px;">Дарите заботу</h3>
+            <button style="background:white; color:#3b82f6; padding:12px 32px; border:none; border-radius:9999px;">Купить</button>
+        </div>
+
+        <div class="sidebar-card" style="text-align:center;">
+            <h3>8 Видео сессий</h3>
+            <p style="font-size:32px; font-weight:700; margin:12px 0;">18 500 ₽</p>
+            <button style="background:#10b981; color:white; padding:14px 40px; border:none; border-radius:9999px;">Купить</button>
+        </div>
+    </aside>
+</div>
+
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__column">
+            <h4>О нас</h4>
+            <ul class="footer__list">
+                <li class="footer__list-item"><a href="#" class="footer__link">Тарифы</a></li>
+                <li class="footer__list-item"><a href="#" class="footer__link">Для бизнеса</a></li>
+                <li class="footer__list-item"><a href="#" class="footer__link">Психологам</a></li>
+                <li class="footer__list-item"><a href="#" class="footer__link">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer__column">
+            <h4>Блог</h4>
+            <ul class="footer__list">
+                <li class="footer__list-item"><a href="#" class="footer__link">Вебинары</a></li>
+                <li class="footer__list-item"><a href="#" class="footer__link">Подкаст</a></li>
+                <li class="footer__list-item"><a href="#" class="footer__link">Сертификат</a></li>
+                <li class="footer__list-item"><a href="#" class="footer__link">Контакты</a></li>
+            </ul>
+        </div>
+        <div class="footer__column footer__newsletter">
+            <h4>Одно письмо в неделю со свежими новостями и акциями</h4>
+            <form class="footer__newsletter-form">
+                <input type="email" class="footer__newsletter-input" placeholder="Ваш e-mail" required>
+                <button type="submit" style="background:#34d399; color:white; border:none; padding:0 32px; border-radius:9999px;">→</button>
+            </form>
+        </div>
+        <div class="footer__column">
+            <div class="footer__sk">
+                <div style="width:48px;height:48px;background:white;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#1e40af;font-weight:700;">Sk</div>
+                <span>Участник</span>
+            </div>
+
+            <div class="footer__socials">
+                <a href="#" aria-label="ВКонтакте">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.7 2H8.3C4.8 2 2 4.8 2 8.3v7.4C2 19.2 4.8 22 8.3 22h7.4c3.5 0 6.3-2.8 6.3-6.3V8.3C22 4.8 19.2 2 15.7 2z"/><path d="M13.8 16.5h-1.6c-2.1 0-3.8-1.7-3.8-3.8v-1.4c0-2.1 1.7-3.8 3.8-3.8h1.6c2.1 0 3.8 1.7 3.8 3.8v1.4c0 2.1-1.7 3.8-3.8 3.8z"/></svg>
+                </a>
+                <a href="#" aria-label="Telegram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.96 9.25c-.14.66-.52.82-1.06.51l-2.98-2.2-1.44 1.38c-.16.16-.3.3-.62.3-.4 0-.66-.3-.66-.66V14.5l5.9-3.58c.26-.16.5-.06.5.2z"/></svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.085-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.483-.234-2.11-.583v.058c0 2.26 1.607 4.14 3.74 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.03-.877-.085.593 1.85 2.314 3.198 4.357 3.233-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.504 2.09 7.13 2.09 8.557 0 13.23-7.09 13.23-13.23 0-.2 0-.4-.015-.6.91-.658 1.7-1.477 2.323-2.41z"/></svg>
+                </a>
+                <a href="#" aria-label="Дзен или другой сервис" style="background-color: #1e2937; color: white;">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer__container footer__bottom">
+        <div>©Youtalk, 2018 — 2022</div>
+        <div>Юридические документы</div>
+        <div>Способы оплаты</div>
+    </div>
+</footer>
+</body>
+</html>
